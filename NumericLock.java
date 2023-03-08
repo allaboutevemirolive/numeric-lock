@@ -40,32 +40,37 @@ public class NumericLock {
         return count;
     }
 
+    // One digit is right and in its place
     public boolean rule1(int[] guess) {
         int[] clueCombo = { 6, 8, 2 };
         return (numMatchesInPlace(guess, clueCombo) == 1) && (numDigitsRight(guess, clueCombo) == 1);
     }
 
+    // One digit is right but in the wrong place
     public boolean rule2(int[] guess) {
         int[] clueCombo = { 6, 1, 4 };
         return (numMatchesInPlace(guess, clueCombo) == 0) && (numDigitsRight(guess, clueCombo) == 1);
     }
 
+    // Two digits are right, but both are in the wrong place
     public boolean rule3(int[] guess) {
         int[] clueCombo = { 2, 0, 6 };
         return (numMatchesInPlace(guess, clueCombo) == 0) && (numDigitsRight(guess, clueCombo) == 2);
     }
 
+    // All digits are wrong
     public boolean rule4(int[] guess) {
         int[] clueCombo = { 7, 3, 8 };
         return (numDigitsRight(guess, clueCombo) == 0);
     }
 
+    // One digit is right but in the wrong place
     public boolean rule5(int[] guess) {
         int[] clueCombo = { 3, 8, 0 };
         return (numMatchesInPlace(guess, clueCombo) == 0) && (numDigitsRight(guess, clueCombo) == 1);
     }
 
-    // Prints the guess in the format 'a-b-c'.
+    // Prints the guess in the format 'a-b-c'
     public void printGuess(int[] guess) {
         System.out.print("\n" + guess[0] + "-" + guess[1] + "-" + guess[2]);
     }
