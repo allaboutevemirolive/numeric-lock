@@ -2,20 +2,16 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        NumericLockBackTrack obj = new NumericLockBackTrack();
+        NumericLockBruteForce obj = new NumericLockBruteForce();
         ArrayList<int[]> validGuesses = new ArrayList<>();
 
         // Start measuring time
         long startTime = System.currentTimeMillis();
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                for (int k = 0; k < 10; k++) {
-                    int[] guess = { i, j, k };
-                    if (obj.evaluate(guess)) {
-                        validGuesses.add(guess);
-                    }
-                }
+        for (int i = 0; i < 1000; i++) {
+            int[] guess = { i / 100, (i / 10) % 10, i % 10 };
+            if (obj.evaluate(guess)) {
+                validGuesses.add(guess);
             }
         }
         // End measuring time
@@ -31,7 +27,6 @@ public class Main {
                 System.out.println();
             }
         }
-        // Print duration
         System.out.println("\nDuration: " + duration + " ms");
     }
 }

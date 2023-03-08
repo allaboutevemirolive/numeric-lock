@@ -18,7 +18,7 @@ Combination  Result
 
 The 3-digit password lock issue was resolved thanks to `JamieFlournoy`. I implement his solution from `Ruby` to `Java` and `Python`.
 
-The solution includes `Backtracking` and `Bruteforce` algorithms. Python is much easier to use than Java because it has more built-in functions and is math-friendly.
+The solution includes `Bruteforce` algorithms for both Java and Python. 
 
 
 Source:

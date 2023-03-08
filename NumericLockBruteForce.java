@@ -62,7 +62,7 @@ public class NumericLockBruteForce {
     }
 
     public void printGuess(int[] guess) {
-        System.out.print("\n"+guess[0] + "-" + guess[1] + "-" + guess[2]);
+        System.out.print("\n" + guess[0] + "-" + guess[1] + "-" + guess[2]);
     }
 
     public boolean evaluate(int[] guess) {
@@ -96,5 +96,4 @@ public class NumericLockBruteForce {
             return false;
         }
     }
-    
 }
