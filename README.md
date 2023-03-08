@@ -26,4 +26,5 @@ Source:
 
 https://github.com/JamieFlournoy/Lock-Puzzle-Solver/blob/master/lockpuzzle.rb
 
-Copyright 2023, Akmal Firdaus, All rights reserved.
+
+Copyright 2023, allaboutevemirolive, All rights reserved.
