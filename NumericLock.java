@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class NumericLock {
 
     // Returns a boolean array indicating if each element in a is in the same position as the corresponding element in b.
+    // ex. [1,2,3], [3,2,1] => [false, true, false]
     public boolean[] matchesInPlace(int[] a, int[] b) {
         boolean[] result = new boolean[a.length];
         for (int i = 0; i < a.length; i++) {
@@ -23,7 +24,7 @@ public class NumericLock {
         return count;
     }
 
-    // Returns the number of elements in a that are also in b, regardless of position.
+    // Returns the number of elements in a that are also in b, regardless of position. (intersection of a and b.)
     public int numDigitsRight(int[] a, int[] b) {
         ArrayList<Integer> setA = new ArrayList<>();
         for (int num : a) {
