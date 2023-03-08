@@ -64,11 +64,13 @@ public class NumericLock {
         return (numMatchesInPlace(guess, clueCombo) == 0) && (numDigitsRight(guess, clueCombo) == 1);
     }
 
+    // Prints the guess in the format 'a-b-c'.
     public void printGuess(int[] guess) {
         System.out.print("\n" + guess[0] + "-" + guess[1] + "-" + guess[2]);
     }
 
     public boolean evaluate(int[] guess) {
+        // Evaluates the guess against all five clues and prints the results.
         printGuess(guess);
         System.out.print(":");
         int fails = 0;
