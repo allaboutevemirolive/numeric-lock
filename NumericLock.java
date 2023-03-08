@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class NumericLockBruteForce {
+public class NumericLock {
 
     public boolean[] matchesInPlace(int[] a, int[] b) {
         boolean[] result = new boolean[a.length];

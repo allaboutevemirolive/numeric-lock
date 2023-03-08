@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        NumericLockBruteForce obj = new NumericLockBruteForce();
+        NumericLock obj = new NumericLock();
         ArrayList<int[]> validGuesses = new ArrayList<>();
 
         // Start measuring time
@@ -14,6 +14,7 @@ public class Main {
                 validGuesses.add(guess);
             }
         }
+
         // End measuring time
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;

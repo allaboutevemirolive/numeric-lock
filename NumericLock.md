@@ -48,3 +48,31 @@ Create a list of all possible combinations of three digits from 0 to 9.
 For each combination, check if it satisfies all the rules.
 If a combination satisfies all the rules, return it as the answer.
 If all combinations have been tried and none of them satisfy the rules, return null.
+
+___
+
+
+## Comparing print statements
+
+Shorter and clean code
+```
+for (int i = 0; i < 1000; i++) {
+    int[] guess = { i / 100, (i / 10) % 10, i % 10 };
+    if (obj.evaluate(guess)) {
+        validGuesses.add(guess);
+    }
+}
+```
+Maintainable code 
+```
+for (int i = 0; i < 10; i++) {
+    for (int j = 0; j < 10; j++) {
+        for (int k = 0; k < 10; k++) {
+            int[] guess = { i, j, k };
+            if (obj.evaluate(guess)) {
+                validGuesses.add(guess);
+            }
+        }
+    }
+}
+```
