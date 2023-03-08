@@ -1,5 +1,3 @@
-## Copyright 2023, Akmal Firdaus, All rights reserved.
-___
 The puzzle states that for a `3-digit combination lock`, where each digit is a value between 0 and 9, the following clues are known about certain combinations:
 
 
@@ -27,3 +25,5 @@ Source:
 
 
 https://github.com/JamieFlournoy/Lock-Puzzle-Solver/blob/master/lockpuzzle.rb
+
+Copyright 2023, Akmal Firdaus, All rights reserved.
