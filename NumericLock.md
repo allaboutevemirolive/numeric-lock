@@ -44,10 +44,10 @@ This approach has a worst-case time complexity of O(10^3), which is manageable f
 
 Here's a sketch of the backtracking algorithm:
 
-Create a list of all possible combinations of three digits from 0 to 9.
-For each combination, check if it satisfies all the rules.
-If a combination satisfies all the rules, return it as the answer.
-If all combinations have been tried and none of them satisfy the rules, return null.
+- Create a list of all possible combinations of three digits from 0 to 9.
+- For each combination, check if it satisfies all the rules.
+- If a combination satisfies all the rules, return it as the answer.
+- If all combinations have been tried and none of them satisfy the rules, return null.
 
 ___
 
