@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        NumericLock obj = new NumericLock();
+        NumericLock numericLock = new NumericLock();
         ArrayList<int[]> validGuesses = new ArrayList<>();
 
         // Start measuring time
@@ -10,7 +10,7 @@ public class Main {
 
         for (int i = 0; i < 1000; i++) {
             int[] guess = { i / 100, (i / 10) % 10, i % 10 };
-            if (obj.evaluate(guess)) {
+            if (numericLock.evaluate(guess)) {
                 validGuesses.add(guess);
             }
         }
@@ -24,8 +24,8 @@ public class Main {
         } else {
             System.out.println();
             System.out.print("\nValid guesses:");
-            for (int[] valid : validGuesses) {
-                System.out.print("\n" + valid[0] + "-" + valid[1] + "-" + valid[2]);
+            for (int[] validGuess : validGuesses) {
+                System.out.print("\n" + validGuess[0] + "-" + validGuess[1] + "-" + validGuess[2]);
             }
         }
         System.out.println();

@@ -2,13 +2,13 @@ import java.util.ArrayList;
 
 public class NumericLock {
 
-    // Returns the number of elements in a that are in the same position as the corresponding element in b.
-    public int numMatchesInPlace(int[] a, int[] b) {
+    // Returns the number of elements in guess that are in the same position as the corresponding element in target
+    public int countMatchesInPlace(int[] guess, int[] target) {
         int count = 0;
-        boolean[] matches = new boolean[a.length];
+        boolean[] matches = new boolean[guess.length];
         // ex. [1,2,3], [3,2,1] => [false, true, false]
-        for (int i = 0; i < a.length; i++) {
-            matches[i] = (a[i] == b[i]);
+        for (int i = 0; i < guess.length; i++) {
+            matches[i] = (guess[i] == target[i]);
         }
         for (boolean match : matches) {
             // if true, increment count to show there is number that in right place
@@ -20,73 +20,68 @@ public class NumericLock {
     }
 
     // Returns the number of elements in a that are also in b, regardless of position. (intersection of a and b.)
-    public int numDigitsRight(int[] a, int[] b) {
-        ArrayList<Integer> setA = new ArrayList<>();
-        for (int num : a) {
-            setA.add(num);
+    public int countDigitsIntersection(int[] guess, int[] target) {
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int num : guess) {
+            list.add(num);
         }
         int count = 0;
-        for (int num : b) {
-            if (setA.contains(num)) {
+        for (int num : target) {
+            if (list.contains(num)) {
                 count++;
-                setA.remove(Integer.valueOf(num));
+                list.remove(Integer.valueOf(num));
             }
         }
         return count;
     }
 
-    // One digit is right and in its place
-    public boolean rule1(int[] guess) {
-        int[] clueCombo = { 6, 8, 2 };
-        return (numMatchesInPlace(guess, clueCombo) == 1) && (numDigitsRight(guess, clueCombo) == 1);
+    public boolean hasOneDigitRightAndInPlace(int[] guess) {
+        int[] target = { 6, 8, 2 };
+        return (countMatchesInPlace(guess, target) == 1) && (countDigitsIntersection(guess, target) == 1);
     }
 
-    // One digit is right but in the wrong place
-    public boolean rule2(int[] guess) {
-        int[] clueCombo = { 6, 1, 4 };
-        return (numMatchesInPlace(guess, clueCombo) == 0) && (numDigitsRight(guess, clueCombo) == 1);
+    public boolean hasOneDigitRightButInWrongPlace(int[] guess) {
+        int[] target = { 6, 1, 4 };
+        return (countMatchesInPlace(guess, target) == 0) && (countDigitsIntersection(guess, target) == 1);
     }
 
-    // Two digits are right, but both are in the wrong place
-    public boolean rule3(int[] guess) {
-        int[] clueCombo = { 2, 0, 6 };
-        return (numMatchesInPlace(guess, clueCombo) == 0) && (numDigitsRight(guess, clueCombo) == 2);
+    public boolean hasTwoDigitsRightButInWrongPlace(int[] guess) {
+        int[] target = { 2, 0, 6 };
+        return (countMatchesInPlace(guess, target) == 0) && (countDigitsIntersection(guess, target) == 2);
     }
 
-    // All digits are wrong
-    public boolean rule4(int[] guess) {
-        int[] clueCombo = { 7, 3, 8 };
-        return (numDigitsRight(guess, clueCombo) == 0);
+    public boolean hasNoDigitRight(int[] guess) {
+        int[] target = { 7, 3, 8 };
+        return (countDigitsIntersection(guess, target) == 0);
     }
 
-    // One digit is right but in the wrong place
-    public boolean rule5(int[] guess) {
-        int[] clueCombo = { 3, 8, 0 };
-        return (numMatchesInPlace(guess, clueCombo) == 0) && (numDigitsRight(guess, clueCombo) == 1);
+    public boolean hasOneDigitRightButInWrongPlace2(int[] guess) {
+        int[] target = { 3, 8, 0 };
+        return (countMatchesInPlace(guess, target) == 0) && (countDigitsIntersection(guess, target) == 1);
     }
 
     public boolean evaluate(int[] guess) {
-        // Prints the guess in the format 'a-b-c'
+        // Print the guess in the format 'a-b-c'
         System.out.print("\n" + guess[0] + "-" + guess[1] + "-" + guess[2]);
         System.out.print(":");
         int fails = 0;
-        if (!rule1(guess)) {
+        if (!hasOneDigitRightAndInPlace(guess)) {
             System.out.print(" !r1");
             fails++;
         }
-        if (!rule2(guess)) {
+        if (!hasOneDigitRightButInWrongPlace(guess)) {
             System.out.print(" !r2");
             fails++;
         }
-        if (!rule3(guess)) {
+        if (!hasTwoDigitsRightButInWrongPlace(guess)) {
             System.out.print(" !r3");
             fails++;
         }
-        if (!rule4(guess)) {
+        if (!hasNoDigitRight(guess)) {
             System.out.print(" !r4");
             fails++;
         }
-        if (!rule5(guess)) {
+        if (!hasOneDigitRightButInWrongPlace2(guess)) {
             System.out.print(" !r5");
             fails++;
         }
