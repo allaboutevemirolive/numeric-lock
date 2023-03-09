@@ -24,7 +24,7 @@ public class Main {
         } else {
             System.out.println("\nValid guesses:");
             for (int[] valid : validGuesses) {
-                obj.printGuess(valid);
+                System.out.print("\n" + valid[0] + "-" + valid[1] + "-" + valid[2]);
                 System.out.println();
             }
         }

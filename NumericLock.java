@@ -2,21 +2,16 @@ import java.util.ArrayList;
 
 public class NumericLock {
 
-    // Returns a boolean array indicating if each element in a is in the same position as the corresponding element in b.
-    // ex. [1,2,3], [3,2,1] => [false, true, false]
-    public boolean[] matchesInPlace(int[] a, int[] b) {
-        boolean[] result = new boolean[a.length];
-        for (int i = 0; i < a.length; i++) {
-            result[i] = (a[i] == b[i]);
-        }
-        return result;
-    }
-
     // Returns the number of elements in a that are in the same position as the corresponding element in b.
     public int numMatchesInPlace(int[] a, int[] b) {
         int count = 0;
-        boolean[] matches = matchesInPlace(a, b);
+        boolean[] matches = new boolean[a.length];
+        // ex. [1,2,3], [3,2,1] => [false, true, false]
+        for (int i = 0; i < a.length; i++) {
+            matches[i] = (a[i] == b[i]);
+        }
         for (boolean match : matches) {
+            // if true, increment count to show there is number that in right place
             if (match) {
                 count++;
             }
@@ -70,14 +65,9 @@ public class NumericLock {
         return (numMatchesInPlace(guess, clueCombo) == 0) && (numDigitsRight(guess, clueCombo) == 1);
     }
 
-    // Prints the guess in the format 'a-b-c'
-    public void printGuess(int[] guess) {
-        System.out.print("\n" + guess[0] + "-" + guess[1] + "-" + guess[2]);
-    }
-
     public boolean evaluate(int[] guess) {
-        // Evaluates the guess against all five clues and prints the results.
-        printGuess(guess);
+        // Prints the guess in the format 'a-b-c'
+        System.out.print("\n" + guess[0] + "-" + guess[1] + "-" + guess[2]);
         System.out.print(":");
         int fails = 0;
         if (!rule1(guess)) {
